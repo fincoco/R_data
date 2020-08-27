@@ -1,10 +1,10 @@
-#Åë°èÀû °¡¼³ °ËÁ¤
+#í†µê³„ì  ê°€ì„¤ ê²€ì •
 
-#±â¼ú Åë°è: µ¥ÀÌÅÍ ¿ä¾àÇØ ¼³¸íÇÏ´Â Åë°è ±â¹ý
-#Ãß·Ð Åë°è: ¾î¶² °ªÀÌ ¹ß»ýÇÒ È®·üÀ» °è»êÇÏ´Â Åë°è ±â¹ý
-#À¯ÀÇ È®·ü(Significance prob, p-value): ½ÇÁ¦·Î´Â Áý´Ü °£ Â÷ÀÌ°¡ ¾ø´Âµ¥ ¿ì¿¬È÷ Â÷ÀÌ°¡ ÀÖ´Â µ¥ÀÌÅÍ°¡ ÃßÃâµÉ È®·ü
+#ê¸°ìˆ  í†µê³„: ë°ì´í„° ìš”ì•½í•´ ì„¤ëª…í•˜ëŠ” í†µê³„ ê¸°ë²•
+#ì¶”ë¡  í†µê³„: ì–´ë–¤ ê°’ì´ ë°œìƒí•  í™•ë¥ ì„ ê³„ì‚°í•˜ëŠ” í†µê³„ ê¸°ë²•
+#ìœ ì˜ í™•ë¥ (Significance prob, p-value): ì‹¤ì œë¡œëŠ” ì§‘ë‹¨ ê°„ ì°¨ì´ê°€ ì—†ëŠ”ë° ìš°ì—°ížˆ ì°¨ì´ê°€ ìžˆëŠ” ë°ì´í„°ê°€ ì¶”ì¶œë  í™•ë¥ 
 
-#t-test; µÎ Áý´ÜÀÇ Æò±Õ¿¡ Åë°èÂ½À¸·Î À¯ÀÇÇÑ Â÷ÀÌ°¡ ÀÖ´Â°¡?
+#t-test; ë‘ ì§‘ë‹¨ì˜ í‰ê· ì— í†µê³„ì ìœ¼ë¡œ ìœ ì˜í•œ ì°¨ì´ê°€ ìžˆëŠ”ê°€?
 mpg = as.data.frame(ggplot2::mpg)
 library(dplyr)
 mpg_diff = mpg %>%
@@ -14,8 +14,8 @@ head(mpg_diff)
 table(mpg_diff)
 
 t.test(data = mpg_diff, cty~class, var.equal = T) 
-#ºñ±³ÇÒ °ª~ºñ±³ÇÒ Áý´Ü(±âÁØ)/var.equalÀº Áý´Ü °£ ºÐ»êÀÌ °°ÀºÁö ´Ù¸¥Áö
-#ÀÏ¹ÝÀûÀ¸·Î p-value 5%¸¦ ÆÇ´Ü ±âÁØÀ¸·Î »ï°í À¯ÀÇ È®·ü ÆÄ¾Ç. 5%º¸´Ù ÀÛÀ¸¸é À¯ÀÇÇÑ °ÍÀ¸·Î ÇØ¼®
+#ë¹„êµí•  ê°’~ë¹„êµí•  ì§‘ë‹¨(ê¸°ì¤€)/var.equalì€ ì§‘ë‹¨ ê°„ ë¶„ì‚°ì´ ê°™ì€ì§€ ë‹¤ë¥¸ì§€
+#ì¼ë°˜ì ìœ¼ë¡œ p-value 5%ë¥¼ íŒë‹¨ ê¸°ì¤€ìœ¼ë¡œ ì‚¼ê³  ìœ ì˜ í™•ë¥  íŒŒì•…. 5%ë³´ë‹¤ ìž‘ìœ¼ë©´ ìœ ì˜í•œ ê²ƒìœ¼ë¡œ í•´ì„
 
 mpg_diff2 = mpg %>%
   select(fl, cty) %>%
@@ -25,29 +25,29 @@ table(mpg_diff2$fl)
 
 t.test(data = mpg_diff2, cty~fl, var.equal = T)
 
-#»ó°üºÐ¼®(Correlation Analysis); µÎ ¿¬¼Ó º¯¼ö°¡ ¼­·Î °ü·ÃÀÌ ÀÖ´Â°¡? 0~1 »çÀÌÀÇ »ó°ü°è¼ö(1¿¡ °¡±î¿ï¼ö·Ï °ü·Ã¼ºÀÌ Å­)
+#ìƒê´€ë¶„ì„(Correlation Analysis); ë‘ ì—°ì† ë³€ìˆ˜ê°€ ì„œë¡œ ê´€ë ¨ì´ ìžˆëŠ”ê°€? 0~1 ì‚¬ì´ì˜ ìƒê´€ê³„ìˆ˜(1ì— ê°€ê¹Œìš¸ìˆ˜ë¡ ê´€ë ¨ì„±ì´ í¼)
 economics = as.data.frame(ggplot2::economics)
 cor.test(economics$unemploy, economics$pce) 
-#R¿¡ ³»ÀåµÈ cor.test ÇÔ¼ö È°¿ë/½Ç¾÷ÀÚ ¼ö¿Í °³ÀÎ ¼Òºñ ÁöÃâÀÇ »ó°ü°ü°è 
-#p-value°¡ 0.05º¸´Ù ÀÛÀ¸¹Ç·Î »ó°üÀÌ À¯ÀÇÇÏ´Ù°í º¸ÀÌ¸ç »ó°ü°ü°è°¡ ¾ç¼ö 0.61ÀÌ¹Ç·Î Á¤ºñ°è °ü°è
+#Rì— ë‚´ìž¥ëœ cor.test í•¨ìˆ˜ í™œìš©/ì‹¤ì—…ìž ìˆ˜ì™€ ê°œì¸ ì†Œë¹„ ì§€ì¶œì˜ ìƒê´€ê´€ê³„ 
+#p-valueê°€ 0.05ë³´ë‹¤ ìž‘ìœ¼ë¯€ë¡œ ìƒê´€ì´ ìœ ì˜í•˜ë‹¤ê³  ë³´ì´ë©° ìƒê´€ê´€ê³„ê°€ ì–‘ìˆ˜ 0.61ì´ë¯€ë¡œ ì •ë¹„ê³„ ê´€ê³„
 
-#»ó°üÇà·Ä È÷Æ®¸Ê
-head(mtcars) #R ³»Àå µ¥ÀÌÅÍ;ÀÚµ¿Â÷ 32Á¾ÀÇ 11°³ ¼Ó¼º µ¥ÀÌÅÍ
-car_cor = cor(mtcars) #cor()ÀÌ¿ëÇÏ¿© »ó°üÇà·Ä »ý¼º(»ó°ü°è¼ö)
+#ìƒê´€í–‰ë ¬ ížˆíŠ¸ë§µ
+head(mtcars) #R ë‚´ìž¥ ë°ì´í„°;ìžë™ì°¨ 32ì¢…ì˜ 11ê°œ ì†ì„± ë°ì´í„°
+car_cor = cor(mtcars) #cor()ì´ìš©í•˜ì—¬ ìƒê´€í–‰ë ¬ ìƒì„±(ìƒê´€ê³„ìˆ˜)
 round(car_cor, 2)
 
 install.packages("corrplot")
 library(corrplot)
-corrplot(car_cor) #»ó°ü°è¼ö°¡ Å¬¼ö·Ï ¿øÀÌ Å©±â°¡ Å©°í »ö±òÀÌ ÁøÇÔ. ¾ç¼ö¸é ÆÄ¶û, À½¼ö¸é »¡°­ °è¿­
-corrplot(car_cor, method = "number") #»ó°ü°è¼ö°¡ ¼ýÀÚ·Î Ç¥½Ã
+corrplot(car_cor) #ìƒê´€ê³„ìˆ˜ê°€ í´ìˆ˜ë¡ ì›ì´ í¬ê¸°ê°€ í¬ê³  ìƒ‰ê¹”ì´ ì§„í•¨. ì–‘ìˆ˜ë©´ íŒŒëž‘, ìŒìˆ˜ë©´ ë¹¨ê°• ê³„ì—´
+corrplot(car_cor, method = "number") #ìƒê´€ê³„ìˆ˜ê°€ ìˆ«ìžë¡œ í‘œì‹œ
 
 col = colorRampPalette(c("#BB4444", "#EE9988", "#FFFFFF", "#77AADD", "#4477AA"))
 corrplot(car_cor,
-         method = "color",       #»ö±ò·Î Ç¥Çö
-         col = col(200),         #»ö»ó 200°³ ¼±Á¤
-         type = "lower",         #¿ÞÂÊ ¾Æ·¡ Çà·Ä¸¸ Ç¥½Ã
-         order = "hclust",       #À¯»çÇÑ »ó°ü°è¼ö³¢¸® ±ºÁýÈ­
-         addCoef.col = "black",  #»ó°ü°è¼ö »ö±ò
-         tl.col = "black",       #º¯¼ö¸í »ö±ò
-         tl.srt = 45,            #º¯¼ö¸í 45µµ ±â¿ïÀÓ
-         diag = F)               #´ë°¢ Çà·Ä Á¦¿Ü
+         method = "color",       #ìƒ‰ê¹”ë¡œ í‘œí˜„
+         col = col(200),         #ìƒ‰ìƒ 200ê°œ ì„ ì •
+         type = "lower",         #ì™¼ìª½ ì•„ëž˜ í–‰ë ¬ë§Œ í‘œì‹œ
+         order = "hclust",       #ìœ ì‚¬í•œ ìƒê´€ê³„ìˆ˜ë¼ë¦¬ êµ°ì§‘í™”
+         addCoef.col = "black",  #ìƒê´€ê³„ìˆ˜ ìƒ‰ê¹”
+         tl.col = "black",       #ë³€ìˆ˜ëª… ìƒ‰ê¹”
+         tl.srt = 45,            #ë³€ìˆ˜ëª… 45ë„ ê¸°ìš¸ìž„
+         diag = F)               #ëŒ€ê° í–‰ë ¬ ì œì™¸
